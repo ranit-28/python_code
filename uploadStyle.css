@@ -1,0 +1,46 @@
+body{
+    font-family:'Times New Roman', Times, serif;
+    background-size: 100% 100%;
+    background-attachment:fixed; 
+    padding: 0.5%;
+}
+
+.head
+{
+    font-size:4vw;
+    font-family:'Times New Roman', Times, serif;
+    background: -webkit-linear-gradient(hsla(304, 89%, 48%, 0.555), rgb(11, 101, 122));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+  
+}
+.Mynavbar
+{
+    margin-left: auto;
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #6b6f71;
+  }
+  
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: 
+  #6b6f71;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+

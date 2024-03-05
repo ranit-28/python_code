@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>KSP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Style sheet link -->
+  <link rel="stylesheet" href="ForgetPassStyle.css">
+  <!-- Font Awesome Link -->
+
+  <script src="https://kit.fontawesome.com/d19fd4286f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm  justify-content-end" style="background-color: #74EBD5;
+  background-image: linear-gradient(90deg, #a4eadd 0%, #9FACE6 100%);
+  ">
+  
+    <h3 style="margin-right:45%;color: rgb(127, 7, 201);">Knowledge_Sharing_Portal</h3>
+    <div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="tempHome.html">Home</a>
+        </li>
+        <!-- Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="uploads.html">Uploads</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="Login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="AboutUs.html">About_Us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="ContactUs.html">Contact_Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="FAQ.html">FAQ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="loginbox " style="border: 0px solid black;">
+
+    <h1 class="text-center gradient-login" style="font-size:3vw;">Forget Password</h1>
+
+    <div class="innerbox border-button">
+      <br>
+
+      <!-- Icon -->
+      <img src="ForPass.png" alt="Avtar" class="center">
+      <!-- Login form -->
+      <form method="post" onsubmit="return validateData()"  action="Login.html">
+        <div class="form-group">
+
+          <!-- Mail ID input field -->
+          <div class="data">
+            <label>Entre Mail-ID:</label><label style="color: red;">*</label>
+            <input type="text" class="form-control inputdata" placeholder="Enter Mail-ID" id="mailid">
+            <!-- Username Error msg -->
+            <small class="mandatory" id="mail_error"></small>
+          </div>
+
+
+          <!-- Send OTP -->
+          <div style="border: 0px solid red;text-align: center;margin-bottom: 1%;margin-top: 7px;">
+            <button type="button" class="btn btn-warning text-center" onclick="validateMailID()" id="mail_btn"
+              value="Send OTP">Send OTP</button>
+
+          </div>
+          <div class="data">
+            <label>Enter OTP:</label>
+            <input type="text" class="form-control inputdata" placeholder="4-Digit Number" id="otp" disabled>
+            <!-- OTP Error msg -->
+            <small class="mandatory" id="otp_error"></small>
+          </div>
+
+          <!-- Send OTP -->
+          <div style="border: 0px solid red;text-align: center;margin-bottom: 1%;margin-top: 7px;">
+            <button type="button" class="btn btn-primary text-center" onclick="checkOTP()" disabled id="otp_btn">Confirm
+              OTP</button>
+          </div>
+
+
+          <!-- password input field -->
+          <div class="data ">
+            <label>Enter New Password:</label></label><label style="color: red;">*</label>
+            <div class="row ">
+              <div class="col input-container">
+                <input type="password" class="form-control inputdata" id="password-field1"
+                  placeholder="Enter New Password" disabled oninput="CheckPass()">
+                <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password1"
+                  style="margin-left:2%;font-size: 1.3vw;"></span>
+              </div>
+            </div>
+            <!-- password Error msg -->
+            <small class="mandatory" id="pass_error1">
+              Please Enter the Strong Password
+
+            </small>
+
+          </div>
+
+          <!-- confirm password input field -->
+          <div class="data ">
+            <label>Confirm Password:</label></label><label style="color: red;">*</label>
+            <div class="row ">
+              <div class="col input-container">
+                <input type="password" class="form-control inputdata" id="password-field2"
+                  placeholder="Confirm Password" disabled  onfocusout="MatchPass()"  onpaste="return false">
+                <span toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password2"
+                  style="margin-left:2%;font-size: 1.3vw;"></span>
+              </div>
+            </div>
+            <!-- password Error msg -->
+            <small class="mandatory" id="pass_error2"></small>
+
+          </div>
+        </div>
+
+        <!--Submit  Buttons -->
+
+        <div style="border: 0px solid red;text-align: center;margin-bottom: 1%;">
+          <button type="submit" class="btn btn-success text-center" id="continue_btn" disabled>Continue</button>
+        </div>
+
+        <br>
+      </form>
+    </div>
+
+  </div>
+
+
+  <footer>
+    <p ID="bottom" class="text-center">Copyright © 2022 Knowledge कट्टा -All Rights Reserved</p>
+  </footer>
+</body>
+
+
+<!-- Javascript code -->
+<!-- <script src="ForgetPass.js"></script> -->
+
+<script>
+  
+function MatchPass()  //To check whether password matches or not
+{
+    let pass1 = document.getElementById("password-field1").value
+    let pass2 = document.getElementById("password-field2").value
+
+    if (pass1 != pass2 ) {
+        setError("pass_error2", "Password Not Matched ", "password-field2");
+        return false;
+
+    }
+    else {
+        setCorrect("pass_error2", "password-field2");
+        return true;
+
+    }
+
+}
+
+function CheckPass()  //To check whether password is strong or not
+{
+    var regName = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
+    let pass = document.getElementById("password-field1").value
+
+   
+        if (!regName.test(pass)) {
+            console.log("Invalid pass");
+            setError("pass_error1", "Please Enter The Strong Password", "password-field1");
+            return false;
+
+        } else {
+            setCorrect("pass_error1", "password-field1");
+
+            console.log("Valid pass")
+            return true;
+        }
+
+    
+
+
+
+}
+// To Validate MAil ID
+function validateMailID() {
+    console.log("mail id");
+    var regName = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    var name = document.getElementById('mailid').value;
+
+    if (regName.test(name)) {
+        setCorrect("mail_error", "mailid");
+        document.getElementById("otp").disabled = false;
+        document.getElementById("otp_btn").disabled = false;
+        document.getElementById("mail_btn").value = "Resend OTP";
+
+
+        alert("OTP is shared to your mail ID");
+
+
+    } else {
+        console.log("inValid mail")
+        setError("mail_error", "Invalid Mail ID", "mailid");
+
+    }
+}
+
+// To validate OTP
+function checkOTP() {
+
+    let OTP = document.getElementById("otp").value;
+
+    if (OTP == "1234") {
+        console.log("I got call with correct OTP");
+        setCorrect("otp_error", "otp");
+        document.getElementById("password-field1").disabled = false;
+        document.getElementById("password-field2").disabled = false;
+        document.getElementById("continue_btn").disabled = false;
+
+    }
+    else {
+        console.log("I got call with wrong OTP");
+        setError("otp_error", "Invalid OTP", "otp");
+
+    }
+}
+
++
+    // To check whether password is strong or not
+    function isStrongPass() {
+        let pass = document.getElementById("password-field1").value;
+        var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
+        return re.test(pass);
+    }
+
+// To handle show password field
+$(".toggle-password1").click(function () {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+});
+
+$(".toggle-password2").click(function () {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+});
+
+function setError(id, error, id2) {
+    document.getElementById(id).innerHTML = error;
+    document.getElementById(id).style.color = "red";
+    document.getElementById(id2).style.borderColor = "red";
+
+}
+
+function setCorrect(id1, id2) {
+    document.getElementById(id1).innerHTML = "";
+    document.getElementById(id2).style.borderColor = "blue";
+
+}
+
+function validateData()
+{
+    if(MatchPass()&&CheckPass())
+    {
+        alert("Congratulation Your Password Updated Successfully .Do you want to continue ?");
+    return true;
+
+    }
+    else
+    {
+        alert("Please Fill The Fields");
+    return false
+
+    }
+}
+</script>
+
+</html>

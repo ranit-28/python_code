@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSP</title>
+
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Style sheet link -->
+  <!-- <link rel="stylesheet" href="NewProject.css"> -->
+  <!-- Font Awesome Link -->
+  <script src="https://kit.fontawesome.com/d19fd4286f.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-size: 100% 100%;
+      background-attachment: fixed;
+      padding: 0.5%;
+    }
+
+    .head {
+      font-size: 4vw;
+      font-family: 'Times New Roman', Times, serif;
+      background: -webkit-linear-gradient(hsla(304, 89%, 48%, 0.555), rgb(11, 101, 122));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+    }
+
+    .Mynavbar {
+      margin-left: auto;
+    }
+
+    .hover-underline-animation {
+      display: inline-block;
+      position: relative;
+      color: #6b6f71;
+    }
+
+    .hover-underline-animation:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color:
+        #6b6f71;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    .hover-underline-animation:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .project_img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+    }
+
+    .logo_img {
+      display: block;
+      width: 20%;
+      margin-right: 50%;
+    }
+
+    #bottom {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1vw;
+      color: rgba(71, 67, 67, 0.642);
+      margin-top: 12%;
+    }
+
+    .box {
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+    }
+
+    .data {
+      margin-left: 1vw;
+      margin-top: 2%;
+    }
+
+    .inputdata {
+      width: 90%;
+      height: 2.2rem;
+    }
+
+    #fname {
+      width: 2%;
+      height: 2rem;
+    }
+
+    #lname {
+      width: 79%;
+      height: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm  justify-content-end" style="background-color: #74EBD5;
+  background-image: linear-gradient(90deg, #a4eadd 0%, #9FACE6 100%);
+  ">
+
+        <h3 style="margin-right:70%;color: rgb(127, 7, 201);">Knowledge_Sharing_Portal</h3>
+        <div>
+            <ul class="navbar-nav">
+            <li class="nav-item">
+          <a class="nav-link " href="logout_logic.php"><img src="logout.png" style="width:30px;height:30px;margin-right: 5%;"></a>
+        </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link " href="uploads.html"></a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link hover-underline-animation" href="Login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link hover-underline-animation" href="AboutUs.html">About_Us</a>
+                </li>
+
+                <li class="nav-item">
+               <a class="nav-link hover-underline-animation" href="ContactUs.html">Contact_Us</a>
+             </li>
+                <li class="nav-item">
+                    <a class="nav-link hover-underline-animation" href="FAQ.html">FAQ</a>
+                </li> --> 
+            </ul>
+            
+        </div>
+    </nav>
+  <br>
+  <div class="project_img">
+    <img src="project.jpg" class="project_img">
+  </div>
+
+  <br>
+  <!-- Project add start Here -->
+  <div>
+    <div class="text-center head" style="font-size:3vw;">
+      Project Details
+    </div>
+    <br>
+  </div>
+
+  <div class="box" style="margin-left: 15%;margin-right: 15%;padding: 1%;">
+    <form enctype="multipart/form-data" role="form" onsubmit="return validateData()"  method="POST" action="project_upload.php">
+      <div class="form-group">
+        <!-- Project name input field -->
+        <div class="data">
+          <label>Project/Research Paper Name:</label><label style="color: red;">*</label>
+          <input type="text" class="form-control inputdata" placeholder="Enter Project Name" id="pname" name="pname"
+            onfocusout="isEmptyField('pname','pname_error')" oninput="isEmptyField('pname','pname_error')">
+          <!-- Project name Error msg -->
+          <small id="pname_error"></small>
+        </div>
+
+
+        <!-- Guide name input field -->
+        <div class="data">
+          <label>Guide Name:</label><label style="color: red;">*</label>
+
+          <input type="text" class="form-control inputdata" placeholder="Enter Guide Name" id="gname" name="gname"
+            onfocusout="isEmptyField('gname','gname_error')" oninput="isValidGuide()">
+          <!-- guide name Error msg -->
+          <small id="gname_error">First & last name only</small>
+        </div>
+
+        <div class="data">
+          <label for="subject">Subject:</label><label style="color: red;">*</label>
+          <select class="form-control inputdata" id="subject" onfocusout="isSelected('subject', 'subject_error')"  name="subject"
+            oninput="isSelected('subject', 'subject_error')">
+            <option value="select">Please Select</option>
+            <option value="Arts">Arts</option>
+            <option value="Bio Technology">Bio Technology</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Computer Engineering">Computer Engineering</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+            <option value="Environment Science">Environment Science</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Pharmacy">Pharmacy</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Zoology">Zoology</option>
+            <option value="Other">Other</option>
+
+
+          </select>
+          <!-- Username Error msg -->
+          <small class="mandatory" id="subject_error"></small>
+        </div>
+
+        <!-- year of completion field -->
+        <div class="data">
+          <label>Year of completion:</label><label style="color: red;">*</label>
+          <input type="text" class="form-control inputdata" placeholder="Enter Year" id="year" name="year"
+            onfocusout="isValidYear()" oninput="isValidYear()">
+          <!-- first name Error msg -->
+          <small id="year_error"></small>
+        </div>
+
+
+        <!-- Used source input field -->
+        <div class="data">
+          <label>Source's used:</label><label style="color: red;">*</label>
+          <textarea type="text" class="form-control inputdata" id="source" name="src"
+            onfocusout="isEmptyField('source','source_error')"
+            oninput="isEmptyField('source','source_error')"></textarea>
+          <!-- first name Error msg -->
+          <small id="source_error"></small>
+        </div>
+
+        <!-- Discrimination input field -->
+        <div class="data">
+          <label>Describe in short about your project:</label><label style="color: red;">*</label>
+          <textarea type="text" class="form-control inputdata" placeholder="" id="desc" name="disc"
+            onfocusout="isEmptyField('desc','desc_error')" oninput="isEmptyField('desc','desc_error')"></textarea>
+          <!-- first name Error msg -->
+          <small id="desc_error"></small>
+        </div>
+
+        <!-- Image input field -->
+        <!-- <div class="">
+          <label>Enter Image of project,Black book,Research paper:</label> -->
+          <!-- <input type="file" class="form-control inputdata" id="file" style="height: 2%;" name="file"  required> -->
+          <!-- <input type="file" name="file" id="file"> -->
+          <!-- <input type="file"name="data"> -->
+          <!-- first name Error msg -->
+          <!-- <small id="img_error">only .jpg, .jpeg, png file will be accepted</small> -->
+        <!-- </div> -->
+
+
+        <!-- Buttons -->
+        <br>
+        <div style="border: 0px solid red;text-align: center;margin-bottom: 2%;">
+
+          <button type="submit" class="btn btn-success" name="submit" id="submit">Save & Upload
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+  <footer>
+    <p ID="bottom" class="text-center">Copyright © 2022 Knowledge कट्टा -All Rights Reserved</p>
+  </footer>
+</body>
+
+<script>
+
+  //to validate Link of project
+  function isUrlValid(userInput) {
+    var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    if (res == null)
+      return false;
+    else
+      return true;
+  }
+
+  // To check thus year is valid
+  function isValidYear() {
+
+    let flag = isEmptyField('year', 'year_error');
+    if (flag == false) {
+      return false;
+    }
+
+    let year = document.getElementById("year").value;
+    var reg = /^\d{1,4}$/;
+
+    const d = new Date();
+    let System_year = d.getFullYear();
+    if (reg.test(year) && year >= 1950 && year <= System_year) {
+      setCorrect("year_error", "year");
+
+      console.log("Valid year");
+      return true;
+    }
+    else {
+      document.getElementById("year").focus();
+      console.log("Invalid Year");
+      setError("year_error", "Please Enter Valid Year", "year");
+      return false;
+
+    }
+
+  }
+  // Code for Drop down whether input is selected or not
+  function isSelected(inputID, errorID) {
+    var ddl = document.getElementById(inputID);
+    var selectedValue = ddl.options[ddl.selectedIndex].value;
+    if (selectedValue == "select") {
+
+      document.getElementById(inputID).style.border = "1px solid red";
+      document.getElementById(errorID).innerHTML = "Please Select The Option";
+      document.getElementById(errorID).style.color = "red";
+      return false;
+    }
+    else {
+      document.getElementById(inputID).style.border = "1px solid blue";
+      document.getElementById(errorID).innerHTML = "";
+      return true;
+    }
+
+  }
+
+
+  // To validate Institute name
+  function isValidInstitute() {
+    let flag = isEmptyField("college", "college_error");
+    if (flag == false) {
+      return false;
+    }
+    console.log("College data");
+    var regName = /college|university|institute|school|academy/
+    var name = document.getElementById('college').value;
+
+    if (regName.test(name.toLowerCase())) {
+      setCorrect("college_error", "college");
+      console.log("Valid college name")
+
+      return true;
+
+    } else {
+      console.log("inValid college name")
+      setError("college_error", "Please Enter Valid College Name", "college");
+      return false;
+
+    }
+
+  }
+
+  //To validate guide name
+  function isValidGuide() {
+    let flag = isEmptyField("gname", "gname_error");
+    if (flag == false) {
+      return false;
+    }
+    let reg = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    let data = document.getElementById("gname").value;
+    if (reg.test(data)) {
+      setCorrect("gname_error", "gname");
+      return true;
+    }
+    else {
+      setError("gname_error", "Please Enter The Valid Data", "gname");
+      return false;
+    }
+  }
+  // To check whether input filed is empty or not
+  function isEmptyField(inputID, errorID) {
+    let data = document.getElementById(inputID).value
+
+    if (data.trim() == '') {
+      console.log("Invalid Data of", inputID);
+      setError(errorID, "Please Fill The Field", inputID);
+      return false;
+    }
+    else if (data.trim() != data) {
+      console.log("Invalid Data of", inputID);
+      setError(errorID, "Please Enter valid data ", inputID);
+      return false;
+    }
+    else {
+      console.log("Correct data");
+      setCorrect(errorID, inputID);
+      return true;
+    }
+  }
+
+  //for validation at the time of submission 
+  function validateData() {
+    let flag1 = isContainSpace("pname", "pname_error");
+    // let flag2=isValidInstitute();
+    let flag3 = isValidYear();
+    let flag4 = isSelected('subject', 'subject_error');
+    let flag5 = isEmptyField('source', 'source_error');
+    let flag6 = isEmptyField('desc', 'desc_error');
+    let flag7 = isValidGuide();
+
+    //special flag cases to check the data of link
+    // let flag8=doesLinkAdded();
+
+
+    if (flag1 && flag3 && flag4 && flag5 && flag6 && flag7) {
+
+      alert("Project Uploaded");
+      return true;
+
+    }
+    else {
+      return false;
+    }
+  }
+
+  function isUrlValid(userInput) {
+    var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/);
+    if (res == null)
+      return false;
+    else
+      return true;
+  }
+
+
+  function isContainSpace(inputID, errorID) {
+    let data = document.getElementById(inputID).value;
+
+    let flag = isEmptyField(inputID, errorID);
+    if (flag == false) {
+      return false;
+    }
+
+    if (data != data.trim()) {
+      console.log("Invalid Data unwanted space added");
+      setError(errorID, "Invalid data", inputID);
+      return false;
+    }
+    else
+      return true;
+
+  }
+
+
+  // To set Error msg & make border of input filed as red
+  function setError(id, error, id2) {
+    document.getElementById(id).innerHTML = error;
+    document.getElementById(id).style.color = "red";
+    document.getElementById(id2).style.borderColor = "red";
+  }
+
+  // To make input filed with bored blue
+  function setCorrect(id1, id2) {
+    document.getElementById(id1).innerHTML = "";
+    document.getElementById(id2).style.borderColor = "blue";
+
+  }
+
+
+  function CheckDimension() {
+
+    console.log("I got call");
+    //Get reference of File.
+    var fileUpload = document.getElementById("file");
+
+    if (fileUpload == '') {
+      console.log("File not entered");
+    }
+
+    //Check whether the file is valid Image.
+    var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.jpeg)$");
+    if (regex.test(fileUpload.value.toLowerCase())) {
+
+      //Check whether HTML5 is supported.
+      if (typeof (fileUpload.files) != "undefined") {
+        //Initiate the FileReader object.
+        var reader = new FileReader();
+        //Read the contents of Image File.
+        reader.readAsDataURL(fileUpload.files[0]);
+        reader.onload = function (e) {
+          //Initiate the JavaScript Image object.
+          var image = new Image();
+
+          //Set the Base64 string return from FileReader as source.
+          image.src = e.target.result;
+
+          alert("File uploaded ");
+
+        }
+      } else {
+        alert("This browser does not support HTML5.");
+        return false;
+      }
+    } else {
+      alert("Please select a valid Image file.");
+      return false;
+    }
+  }
+</script>
+
+</html>

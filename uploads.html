@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSP</title>
+
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Style sheet link -->
+  <link rel="stylesheet" href="uploadStyle.css">
+  <!-- Font Awesome Link -->
+  <script src="https://kit.fontawesome.com/d19fd4286f.js" crossorigin="anonymous"></script>
+  <style>
+    .project_img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+
+    }
+
+    #bottom {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1vw;
+      color: rgba(71, 67, 67, 0.642);
+      margin-top: 12%;
+    }
+    .sub
+    {
+      color: purple;
+      font-size: 1.5em;
+    }
+    .outer_box
+    {border: 0px solid black;
+
+      text-align: center;
+    }
+  </style>
+</head>
+<!-- Body Start Here -->
+
+
+<body>
+
+  <nav class="navbar navbar-expand-sm  justify-content-end" style="background-color: #74EBD5;
+  background-image: linear-gradient(90deg, #a4eadd 0%, #9FACE6 100%);
+  ">
+  
+    <h3 style="margin-right:45%;color: rgb(127, 7, 201);">Knowledge_Sharing_Portal</h3>
+
+
+    <div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="tempHome.html">Home</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="uploads.html">Uploads</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="Login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="AboutUs.html">About_Us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="ContactUs.html">Contact_Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation" href="FAQ.html">FAQ</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <br>
+  <div class="project_img">
+    <img src="uploadImg.jpg" class="project_img">
+  </div>
+
+  <br>
+  <main>
+
+    <form method="post" onsubmit="return validateData()" action="projects.php">
+      <div class="outer_box">
+     
+          <label for="subject" class="sub">Please Select Subject:</label>
+          <select class="form-control" id="subject" style="width:20%;text-align: center;height: 1%;margin-left: 40%;"
+            name="subject" oninput="isSelected('subject', 'subject_error')">
+            <option value="select">Please Select</option>
+            <option value="Arts">Arts</option>
+            <option value="Bio Technology">Bio Technology</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Computer Engineering">Computer Engineering</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+            <option value="Environment Science">Environment Science</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Pharmacy">Pharmacy</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Zoology">Zoology</option>
+            <option value="Other">Other</option>
+
+
+          </select>
+          <!-- Username Error msg -->
+          <small class="mandatory" id="subject_error"></small>
+      
+        <br>
+        <button type="submit" class="btn btn-success">Show Projects
+      </div>
+
+    </form>
+  </main>
+  <br>
+
+
+
+  <footer>
+    <p ID="bottom" class="text-center">Copyright © 2022 Knowledge कट्टा -All Rights Reserved</p>
+  </footer>
+</body>
+
+<script>
+
+  function validateData()
+  {
+    console.log("I got call");
+    let flag1=isSelected('subject','subject_error');
+    return flag1;
+  }
+
+      // Code for Drop down whether input is selected or not
+      function isSelected(inputID, errorID) {
+        var ddl = document.getElementById(inputID);
+        var selectedValue = ddl.options[ddl.selectedIndex].value;
+        if (selectedValue == "select") {
+
+            document.getElementById(inputID).style.border = "1px solid red";
+            document.getElementById(errorID).innerHTML = "Please Select The Option";
+            document.getElementById(errorID).style.color = "red";
+            return false;
+        }
+        else {
+            document.getElementById(inputID).style.border = "1px solid blue";
+            document.getElementById(errorID).innerHTML = "";
+            return true;
+        }
+
+    }
+
+    function setError(id, error, id2) {
+        document.getElementById(id).innerHTML = error;
+        document.getElementById(id).style.color = "red";
+        document.getElementById(id2).style.borderColor = "red";
+
+    }
+
+    function setCorrect(id1, id2) {
+        document.getElementById(id1).innerHTML = "";
+        document.getElementById(id2).style.borderColor = "blue";
+
+    }
+
+</script>
+
+</html>

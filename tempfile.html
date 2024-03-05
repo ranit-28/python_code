@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Style sheet link -->
+    <!-- Font Awesome Link -->
+    <script src="https://kit.fontawesome.com/d19fd4286f.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        padding: 0.5%;
+    }
+
+    .head {
+        font-size: 4vw;
+        font-family: 'Times New Roman', Times, serif;
+        background: -webkit-linear-gradient(hsla(304, 89%, 48%, 0.555), rgb(11, 101, 122));
+        -webkit-background-color-clip: text;
+        -webkit-text-fill-color: transparent;
+
+    }
+
+    .Mynavbar {
+        margin-left: auto;
+    }
+
+    .hover-underline-animation {
+        display: inline-block;
+        position: relative;
+        color: #6b6f71;
+    }
+
+    .hover-underline-animation:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color:
+         #6b6f71;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+
+    .hover-underline-animation:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    .topnav a.split {
+        float: right;
+
+        color: grey;
+    }
+
+    * {
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+        font-family: Verdana, sans-serif;
+    }
+
+    .mySlides {
+        display: none;
+    }
+
+    img {
+        vertical-align: middle;
+    }
+
+     .form {
+        width: 300px;
+        height: 400px;
+        background: linear-gradient(to top, rgba(135, 201, 228, 0.8)50%, rgba(183, 153, 153, 0.8)50%);
+        position: absolute;
+        top: -10px;
+        left: 1000px;
+        transform: translate(0%, -5%);
+        border-radius: 10px;
+        padding: 25px;
+    }
+
+    .login-pf-brand {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .form h2 {
+        width: 220px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #554b42;
+        font-size: 22px;
+        background-color: #fff;
+        border-radius: 10px;
+        margin: 4px;
+        padding: 10px;
+    }
+
+
+    .form input:focus {
+        outline: none;
+    }
+
+    ::placeholder {
+        color: #fff;
+        font-family: Arial;
+    }
+
+    .btnn {
+        width: 240px;
+        height: 40px;
+        background: #627a0b;
+        border: none;
+        margin-top: 30px;
+        font-size: 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #fff;
+        transition: 0.4s ease;
+    }
+
+    .btnn:hover {
+        background: rgb(8, 83, 117);
+        color: #3b3b3a;
+        margin-top: 50px;
+    }
+
+    .btnn a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .form .link {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 17px;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .form .link a {
+        text-decoration: none;
+        color: #170991;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 800px;
+        margin-right: 1000px;
+        margin-top: 1000px;
+        max-height: 600px;
+        position: relative;
+        margin: 20px;
+    }
+
+    /* Caption text */
+    .text {
+        color: yellow;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Number text (1/6 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        height: 10px;
+        width: 10px;
+        margin-right: 200px;
+        background-color: #bbb;
+        border-radius: 80%;
+        display: relative;
+        transition: background-color 0.6s ease;
+    }
+
+    .active {
+        background-color: #f3f8f4;
+    }
+
+    /* Fading animation */
+    .fade {
+        animation-name: fade;
+        animation-duration: 3s;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+
+    @media screen and (max-width: 500px) {
+
+        .topnav a:not(:first-child),
+        .dropdown .dropbtn {
+            display: none;
+        }
+
+        .topnav a.icon {
+            float: right;
+            display: block;
+            text-align: left;
+        }
+
+        .topnav.responsive .dropdown {
+            float: none;
+        }
+
+        .topnav.responsive .dropdown-content {
+            position: relative;
+        }
+
+        .topnav.responsive .dropdown .dropbtn {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+
+        .topnav a {
+            float: none;
+            display: block;
+        }
+
+        .text {
+            font-size: 11px
+        }
+
+    }
+</style>
+<!-- Body Start Here -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm  justify-content-end" style="background-color: #74EBD5;
+    background-image: linear-gradient(90deg, #a4eadd 0%, #9FACE6 100%);
+    ">
+    
+      <h3 style="margin-right:45%;color: rgb(127, 7, 201);">Knowledge_Sharing_Portal</h3>
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation" href="#">Home</a>
+          </li>
+  
+          <!-- Dropdown -->
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation" href="uploads.html">Uploads</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation" href="Login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation" href="AboutUs.html">About_Us</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation" href="ContactUs.html">Contact_Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation" href="FAQ.html">FAQ</a>
+          </li>
+        </ul>
+      </div>
+  
+    </nav>
+
+    </div>
+
+    <div style="padding-left:16px">
+        <h2>Welcome to KSP(knowledge sharing portal)</h2>
+        <p style="color: rgb(179, 75, 0);font-size: 20px;">Welcome to word of knowledge. As we
+            know knowledge is not what you know it's something which you don't know. we are providing you a free
+            platform where you can get an idea about your college projects , Research work already
+            performed in your subject. Here you have a freedom to post your created projects or any research work
+            performed by you. As our motto says bring your knowledge
+            , share with others & learn something new to enhanced your knowledge. </p>
+            <br>
+    </div>
+    
+
+    <div class="slideshow-container" bg-color="grey">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 6</div>
+            <img src="./2.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 6</div>
+            <img src="./3.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 6</div>
+            <img src="./4.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 6</div>
+            <img src="./5.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 6</div>
+            <img src="./7.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 6</div>
+            <img src="./8.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+
+        <div class="form">
+            <form class="login_form" method=post name="form">
+                <img class="login-pf-brand" src="logo.png" alt=" logo" />
+                <br>
+                <br>
+                <p>To Boost Your Knowledge</p>
+                <button class="btnn"><a href="">Resister Now</a></button>
+                <p class="link">If you have an account<br>
+                    <a href="#">Login Here</a>
+                </p>
+            </form>
+        </div>
+
+
+        <script>
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 3000); // Change image every 3 seconds
+            }
+        </script>
+
+</body>
+
+</html>

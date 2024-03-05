@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>KSP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Style sheet link -->
+  <link rel="stylesheet" href="LoginStyle.css">
+  <!-- Font Awesome Link -->
+
+  <script src="https://kit.fontawesome.com/d19fd4286f.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-image: url('my.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-attachment: fixed;
+      padding: 0.5%;
+    }
+
+    .innerbox {
+      margin-left: 15%;
+      margin-right: 15%;
+      border: 0px solid black;
+
+    }
+
+    .data {
+      margin-left: 1vw;
+      margin-top: 2%;
+    }
+
+    input {
+      width: 20vw;
+      height: 2vw;
+    }
+
+    .inputdata {
+      width: 90%;
+      height: 2vw;
+    }
+
+    * {
+      font-family: 'Times New Roman', Times, serif;
+
+    }
+
+    .mybar {
+      border: 2px solid black;
+      font-size: 7vw;
+      text-align: center;
+    }
+
+
+    div.transbox {
+      opacity: 0.9;
+    }
+
+    .loginbox {
+      margin: auto;
+      width: 40%;
+      padding: 10px;
+      margin-left: 30%;
+      margin-right: 30%;
+
+    }
+
+    .mandatory {
+      color: rgba(102, 97, 97, 0.893);
+    }
+
+    .input-container {
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+    }
+
+
+    .border-button {
+      border: solid 1px #aba8a9;
+      transition: border-width 1s linear;
+    }
+
+    .border-button:hover {
+      border-width: 3px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .gradient-login {
+      font-size: 72px;
+      background: -webkit-linear-gradient(hsla(126, 87%, 12%, 0.555), rgb(11, 101, 122));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #bottom {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1vw;
+      color: rgba(71, 67, 67, 0.642);
+      margin-top: 12%;
+    }
+
+
+
+    .head {
+      font-size: 4vw;
+      font-family: 'Times New Roman', Times, serif;
+      background: -webkit-linear-gradient(hsla(304, 89%, 48%, 0.555), rgb(11, 101, 122));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+    }
+
+    .Mynavbar {
+      margin-left: auto;
+    }
+
+    .hover-underline-animation {
+      display: inline-block;
+      position: relative;
+      color: #6b6f71;
+    }
+
+    .hover-underline-animation:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color:
+        #6b6f71;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    .hover-underline-animation:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    img {
+
+      max-width: 33%;
+      max-height: 33%;
+      display: block;
+      border: 1px solid black;
+      border-radius: 50%;
+      padding: 2%;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    .box {
+      width: 20%;
+      border: 1px solid black;
+
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-sm  justify-content-end" style="background-color: #74EBD5;
+background-image: linear-gradient(90deg, #a4eadd 0%, #9FACE6 100%);
+">
+
+  <h3 style="margin-right:45%;color: rgb(127, 7, 201);">Knowledge_Sharing_Portal</h3>
+  <div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link hover-underline-animation" href="tempHome.html">Home</a>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item">
+        <a class="nav-link hover-underline-animation" href="uploads.html">Uploads</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link hover-underline-animation" href="Login.html">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link hover-underline-animation" href="AboutUs.html">About_Us</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link hover-underline-animation" href="ContactUs.html">Contact_Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link hover-underline-animation" href="FAQ.html">FAQ</a>
+      </li>
+    </ul>
+  </div>
+
+  </nav>
+  <div class="loginbox transbox" style="border: 0px solid black;">
+    <h1 class="text-center gradient-login" style="font-size:3vw;">Login</h1>
+    <div class="innerbox border-button">
+      <br>
+      <img src="maleAvtar.png" alt="Avtar" class="center">
+      <!-- Login form -->
+      <form onsubmit="return validateData()" method="post"  action="login_logic.php">
+        <div class="form-group">
+
+          <!-- Username input field -->
+          <div class="data">
+            <label>Username:</label><label style="color: red;">*</label>
+            <input type="text" class="form-control inputdata" placeholder="Enter Username" id="uname" name="uname">
+            <!-- Username Error msg -->
+            <small class="mandatory" id="u_error"></small>
+          </div>
+
+          <!-- password input field -->
+          <div class="data ">
+            <label>Password:</label></label><label style="color: red;">*</label>
+            <div class="row ">
+              <div class="col input-container">
+                <input type="password" class="form-control inputdata" id="password-field" placeholder="Enter Password"
+                  name="pass">
+                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"
+                  style="margin-left:2%;font-size: 1.3vw;"></span>
+              </div>
+            </div>
+            <!-- password Error msg -->
+            <small class="mandatory" id="pass_error"></small>
+
+          </div>
+        </div>
+
+        <!-- Buttons -->
+
+        <div style="border: 0px solid red;text-align: center;margin-bottom: 2%;">
+          <button type="submit" class="btn btn-success" style="margin-right: 3vw;" name='submit' id="submit">Login</button>
+
+          <a href="NewRegistration.html"> <button type="button" class="btn btn-primary">New Register</button></a>
+        </div>
+      </form>
+      <br>
+      <!-- Forget password -->
+      <div style="border:0px solid green;text-align: center;">
+        <span>
+          <a href="ForgetPass.html" title="Forgot Password" id="link-reset">Forgot Password?</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <p ID="bottom" class="text-center">Copyright © 2022 Knowledge कट्टा -All Rights Reserved</p>
+  </footer>
+</body>
+
+<!-- <script src="LoginSupport.js"></script> -->
+<script>
+
+  function isEmpty(id, error_id) {
+
+    let data = document.getElementById(id).value;
+    if (data.trim()== "") {
+      console.log("No valid data of: ",id);
+      setError(error_id, "Please fill the fields", id);
+      return false;
+    }
+    else {
+      setCorrect(error_id, id);
+      return true;
+
+    }
+  }
+  function validateData() {
+
+    let flag1 = isEmpty("uname", "u_error");
+    let flag2 = isEmpty("password-field", "pass_error");
+
+    if (flag1 && flag2) {
+      return true;
+    }
+    else {
+      console.log("No valid data");
+      return false;
+    }
+
+
+  }
+
+  function setError(id, error, id2) {
+    document.getElementById(id).innerHTML = error;
+    document.getElementById(id).style.color = "red";
+    document.getElementById(id2).style.borderColor = "red";
+
+  }
+
+  function setCorrect(id1, id2) {
+    document.getElementById(id1).innerHTML = "";
+    document.getElementById(id2).style.borderColor = "blue";
+
+  }
+
+  // To handle show password field
+  $(".toggle-password").click(function () {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+
+</script>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSP</title>
+
+      <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Style sheet link -->
+  <link rel="stylesheet" href="navbarStyle.css">
+  <!-- Font Awesome Link -->
+  <script src="https://kit.fontawesome.com/d19fd4286f.js" crossorigin="anonymous"></script>
+  <style>
+    #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+video {
+  /** Simulationg background-size: cover */
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  position: fixed;
+  color: #f1f1f1;
+
+}
+  </style>
+</head>
+
+
+<body>  
+   
+    <video autoplay muted loop id="myVideo">
+        <source src="Imp.mp4" type="video/mp4" >
+      </video>
+      
+    <nav class="navbar navbar-expand-sm  justify-content-end" style="background-color: #74EBD5;
+    background-image: linear-gradient(90deg, #a4eadd 0%, #9FACE6 100%);
+    ">
+    
+      <h3 style="margin-right:45%;color: rgb(127, 7, 201);">Knowledge_Sharing_Portal</h3>
+
+     <div >
+        <ul class="navbar-nav" >
+            <li class="nav-item" >
+              <a class="nav-link hover-underline-animation" href="navbar.html" >Home</a>
+            </li>
+    
+              <!-- Dropdown -->
+              <li class="nav-item">
+                <a class="nav-link hover-underline-animation" href="uploads.html">Uploads</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link hover-underline-animation" href="Login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link hover-underline-animation" href="AboutUs.php" >About_Us</a>
+            </li>
+    
+            <li class="nav-item">
+                <a class="nav-link hover-underline-animation" href="#">Contact_Us</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link hover-underline-animation" href="#">FAQ</a>
+              </li>
+          </ul>
+     </div>
+     
+      </nav>
+
+      <br>
+     <div class="row">
+
+        <div class="col" >
+
+            <div class="content" style="border:1px solid white;">
+                <img src="logo3.png" style="width:15%;">
+                <h1 class="text-center">Welcome to World of Knowledge</h1>
+                <br>
+                <h5>If you are student,Teacher or Employ of a company then this is for you </h5>
+                <h5>As we mention bring your Knowledge, share with others & learn smoking new </h5>
+            </div>
+        </div>
+        <div class="col">
+
+            <div class="content"  style="color:rgb(135, 222, 239);border: 1px solid white;">
+                <h1 class="text-center">Welcome to World of Knowledge</h1>
+                    <br>
+                    <h5>If you are student,Teacher or Employ of a company then this is for you </h5>
+                    <h5>As we mention bring your Knowledge, share with others & learn smoking new </h5>
+            </div>
+        </div>
+
+     </div>
+    
+
+ 
+</body>
+</html>
